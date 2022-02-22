@@ -44,7 +44,7 @@ const Form = () => {
 }
 
 const List = () => {
-  const { dispatch, state} = useContext(store)
+  const { dispatch, state} = useContext(Store)
 
   useEffect(() => {
     fetch(HOST_API+"/todos")
@@ -75,6 +75,7 @@ const List = () => {
       </tbody>
       </table>
       </div>
+}
 
     function reducer(state, action) {
       switch(action.type) {
@@ -98,12 +99,14 @@ const StoreProvider = ({ children }) => {
   </Store.Provider>
 }
 
+
 function App() {
   return <StoreProvider>
     <Form /> 
     <List />
   </StoreProvider>
-  };
+}
+
 
 export default App;
   
